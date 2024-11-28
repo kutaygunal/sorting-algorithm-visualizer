@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithm Visualizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sorting Algorithm Visualizer</h1>
+            <p class="subtitle">Visualize how different sorting algorithms work in real-time</p>
+        </header>
+
+        <div class="controls-container">
+            <div class="control-group">
+                <button class="btn primary" onclick="resetArray()">
+                    <i class="fas fa-random"></i> New Array
+                </button>
+                <div class="array-controls">
+                    <label for="arraySize">Array Size:</label>
+                    <input type="range" id="arraySize" min="10" max="100" value="50" onchange="updateArraySize(this.value)">
+                    <span id="arraySizeValue">50</span>
+                </div>
+            </div>
+
+            <div class="control-group algorithms">
+                <button class="btn" onclick="startSorting('bubble')">
+                    <i class="fas fa-sort"></i> Bubble Sort
+                </button>
+                <button class="btn" onclick="startSorting('quick')">
+                    <i class="fas fa-bolt"></i> Quick Sort
+                </button>
+                <button class="btn" onclick="startSorting('merge')">
+                    <i class="fas fa-code-branch"></i> Merge Sort
+                </button>
+                <button class="btn stop" onclick="stopSorting()">
+                    <i class="fas fa-stop"></i> Stop
+                </button>
+            </div>
+        </div>
+
+        <div class="visualization-container">
+            <div id="array-container"></div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Comparisons:</span>
+                    <span id="comparisons">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Swaps:</span>
+                    <span id="swaps">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
